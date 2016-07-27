@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Web Bluetooth app</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="webbluetooth.js"></script>
+  </head>
+  <body style="background-color:#F0F0F0">
+    <div align="center">
+      <div style="width:300px; align:center">
+        <h1 style="color:#009CDE">BLE 6LoWPAN Node Configuration</h1>
+        <hr>
+        <h4 style="color:#939597">Use Web Bluetooth to connect to nodes advertising "NodeCFG"</h4>
+        <hr>
+        <span id="connectable_mode" style="display: block">
+          <button id="connect" type="button" class="btn btn-default" style="width:120px">CONNECT</button>
+        </span>
+        <span id="configuration_mode" style="display: none">
+          <button id="disconnect" type="button" class="btn btn-default" style="margin-right:5px; width:120px">DISCONNECT</button>
+          <button id="identify" type="button" class="btn btn-default" style="margin-left:5px; width:120px">IDENTIFY</button>
+          <hr>
+          <h3 style="color:#009CDE">Configuration</h3>
+          <form style="align-horizontal" class="col-xs-2">
+            <label style="color:#939597; float:left; width:70px; margin:5px"><b>SSID:</b></label>
+              <input id="ssid" type="text" pattern="[a-zA-Z0-9]*" style="text-align:center" value="SSID of router"><br>
+            <label style="color:#939597; float:left; width:70px; margin:5px"><b>Key:</b></label>
+			  <input id="key" type="number" style="text-align:center" value="123456"><br>
+            <label style="color:#939597; float:left; width:70px; margin:5px"><b>Delay:</b></label>
+			  <input id="actiondelay" type="number" value="3" style="text-align:center"><br>
+            <label style="color:#939597; float:left; width:70px; margin:5px"><b>Duration:</b></label>
+			  <input id="duration" type="number" value="20" style="text-align:center"><br>
+            <label style="color:#939597; float:left; width:70px; margin:5px; margin-top:-5px"><b>State-on-failure:</b></label>
+			  <select id="stateonfailure" style="text-align-last:center">
+			    <option value="0">No change</option>
+			    <option value="1">Power off</option>
+			    <option value="2">Enter connectable mode</option>
+              </select><br><br>
+            <button id="submit" type="button" class="btn btn-default" style="width:120px">SUBMIT</button>
+          </form>
+		</span>
+		<hr>
+        <a href="http://www.nordicsemi.com/"><img src="nordic.png" width="60px" style="margin-right:5px"></a>
+        <a href="https://github.com/NordicSemiconductor/nrf5-physical-web/tree/gh-pages/projects/ble-6lowpan-joiner"><img src="github.png" width="60px" style="margin-left:5px"></a>
+        <hr>
+        <div align="left">
+          <pre id="log" style="overflow:auto"></pre>
+        </div>
+        <script>
+          log('> Welcome to the Web Bluetooth \n' + 
+              '  connection app. \n' + 
+              '  Push the connect button to start \n' +
+              '  configuration.');
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
